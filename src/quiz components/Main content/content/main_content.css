@@ -18,7 +18,7 @@
   cursor: pointer;
 }
 .content-container{
-    margin-top: 80px;
+    margin-top: 180px;
     display: grid;
     columns: repeat(3, 1fr);
     grid-template-rows: repeat(auto, 1fr);
@@ -58,12 +58,12 @@
  
 }
 .welcome-box{
-  width: 80%;
+  width: 50%;
   height: auto;
   display: flex;
   flex-direction: column;
   gap: 5px;
-  margin: 50px 0;
+  margin: 160px 0 100px 0;
   font-size: 18px;
 }
 .welcome-box:hover {
@@ -150,4 +150,11 @@
 .disabled-checkbox {
   pointer-events: none;
   opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .welcome-box{
+    width: 80%;
+
+  }
 }

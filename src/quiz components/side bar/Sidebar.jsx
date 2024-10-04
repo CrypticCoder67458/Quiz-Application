@@ -14,7 +14,7 @@ export const Sidebar = () => {
         link: '/Quizzes'}, 
     ]
   return (
-    <div >
+    <div className='sidebar' >
         {sidebar_content.map((box,index) => (
             <SidebarBox
                 key={index} {...box}/>

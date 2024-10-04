@@ -6,21 +6,20 @@
     border-bottom: 1px solid #9f9f9f;
 }
 .sidebar-container {
-  height: 100vh;
+  
   width: 220px;
-
+  box-shadow: 4px 0 10px 0 rgba(0,0,0,0.1);
+  
 }
+
+
 .hamburger{
   display: none;}
-
-
-.sidebar.visible {
-  display: block;
-}
-
-
-
-
+.sidebar{
+    position: fixed;
+    top: 100px;
+    z-index: 8;
+  }
 
 @media (max-width: 768px) {
   .hamburger {
@@ -30,17 +29,21 @@
     display: none;
   }
   .sidebar-container {
-    display: none;
+    height: 100%;
+    position: fixed;
+    top: 100px;
+    z-index: 10;
+    left: -100%;
+    
+    
   }
   .sidebar-container.visible {
-    display: block;
-    position: absolute;
-    z-index: 100;
-    top: 100px;
+    left: 0;
+    transition: 0.5s ease-out;
+    box-shadow: 0 0 0 100vmax rgb(0 0 0 / 50%);
+    background-color: white;
 
   }
-  .sidebar-header {
-    display: none;
-  }
+
   }
 

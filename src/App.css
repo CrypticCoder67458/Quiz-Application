@@ -22,7 +22,7 @@ button{
   }
   .app{
     width: 100vw;
-    height: 100vh;
+
     display: flex;
   }
   .maincontent-container{
@@ -33,3 +33,6 @@ button{
   .sidebar-spacer{
     margin:  0px;
   }
+.fixed_height{
+  height: 100vh;
+}

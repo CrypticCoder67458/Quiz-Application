@@ -8,7 +8,7 @@ import{ QuizContext } from './quiz components/Context/TriviaContext.jsx'
 function App() {
   const{isSidebarVisible} = React.useContext(QuizContext)
   return (
-    <div  className={`app`}>
+    <div  className={`app fixed_height`}>
         <div className={`sidebar-container ${isSidebarVisible ? 'visible' : ''}`}>
           <SidebarHeader />
           <Sidebar/>

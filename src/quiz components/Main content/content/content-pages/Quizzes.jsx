@@ -2,11 +2,12 @@ import { useContext, useState, useEffect, useRef } from 'react';
 import { QuizContext } from '../../../Context/TriviaContext.jsx';
 import { Categories } from './Categories.jsx';
 import { Header } from '../../header/Header.jsx';
-
+import { Sidebar } from '../../../side bar/Sidebar.jsx';
+import { SidebarHeader } from '../../../side bar/SidebarHeader.jsx';
  
 
 export const Quizzes = () => {
-  const { quizData,loading,currentCategory,setCurrentCategory } = useContext(QuizContext);
+  const { quizData,loading,currentCategory,setCurrentCategory,isSidebarVisible } = useContext(QuizContext);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [options, setOptions] = useState([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -83,27 +84,41 @@ const checkAnswer = () => {
   }
   if (!hasStarted) {
     return (
-      <>
-        <Header />
-        <div>
-        <div className='center'>
-          <div className='welcome-box content-box'>
-            <p>Welcome to the Quiz Section! To get started, please select a category from the options below and then click the "Start Quiz" button. In this section, you can test yourself with ten random questions within a category. Have fun and enjoy your time!</p>
-            <p><b>Current Category:</b>{currentCategory}</p>
-            <button onClick={()=>setHasStarted(true)}>Start Quiz</button>
-          </div>
-          <Categories />
+      <div  className={`app `}>
+        <div className={`sidebar-container ${isSidebarVisible ? 'visible' : ''}`}>
+          <SidebarHeader />
+          <Sidebar/>
+        
+        </div>
+        <hr className='sidebar-spacer'/>
+        <div className={`maincontent-container `}>
+            <Header />
+            <div className='center'>
+            <div className='welcome-box content-box'>
+              <p>Welcome to the Quiz Section! To get started, please select a category from the options below and then click the "Start Quiz" button. In this section, you can test yourself with ten random questions within a category. Have fun and enjoy your time!</p>
+              <p><b>Current Category:</b>{currentCategory}</p>
+              <button onClick={()=>setHasStarted(true)}>Start Quiz</button>
+            </div>
+            <Categories />
         </div>
         </div>
         
-        
-      </>
+
+    </div>
+
     )
   }else{
     return (
-      <>
-        <Header />
-        <div className='center'>
+      <div  className={`app `}>
+        <div className={`sidebar-container ${isSidebarVisible ? 'visible' : ''}`}>
+          <SidebarHeader />
+          <Sidebar/>
+        
+        </div>
+        <hr className='sidebar-spacer'/>
+        <div className={`maincontent-container `}>
+            <Header />
+            <div className='center'>
           
           
           <div  className='question-info'>
@@ -142,8 +157,8 @@ const checkAnswer = () => {
           </div>)}
         </div>
         
-
-      </>
+        </div>
+        </div>
     );
   }
   

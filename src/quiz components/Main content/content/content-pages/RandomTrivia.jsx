@@ -2,8 +2,10 @@ import { useContext, useState, useEffect } from 'react';
 import { QuizContext } from '../../../Context/TriviaContext.jsx';
 import { Categories } from './Categories.jsx';
 import { Header } from '../../header/Header.jsx';
+import { Sidebar } from '../../../side bar/Sidebar.jsx';
+import { SidebarHeader } from '../../../side bar/SidebarHeader.jsx';
 export const RandomTrivia = () => {
-  const {quizData,loading,currentCategory,currentPage,setCurrentCategory} = useContext(QuizContext);
+  const {quizData,loading,currentCategory,currentPage,setCurrentCategory,isSidebarVisible} = useContext(QuizContext);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
 
@@ -49,9 +51,16 @@ export const RandomTrivia = () => {
   if(!hasStarted){
     console.log("RandomTrivia: hasStarted is false");
     return (
-      <>
-        <Header/>
-        <div className='center'>
+      <div  className={`app page`}>
+        <div className={`sidebar-container ${isSidebarVisible ? 'visible' : ''}`}>
+          <SidebarHeader />
+          <Sidebar/>
+        
+        </div>
+        <hr className='sidebar-spacer'/>
+        <div className={`maincontent-container `}>
+            <Header />
+            <div className='center'>
           <div className='welcome-box content-box'>
               <p>Welcome to the Random Trivia Section! To get started, please select a category from the options below and then click the "Learn more" button.in this section you will go through 10 random questions and could see their answer to learn more.  Have fun and enjoy your time!</p>
               <p><b>Current Category:</b>{currentCategory}</p>
@@ -60,9 +69,18 @@ export const RandomTrivia = () => {
           <Categories />
         </div>
         
+        </div>
+        
 
-      </>
-      
+    </div>
+
+
+
+
+
+
+
+
     )
   }
   else{
@@ -70,6 +88,11 @@ export const RandomTrivia = () => {
     return (
       <>
         <Header/>
+        <div className={`sidebar-container ${isSidebarVisible ? 'visible' : ''}`}>
+          <SidebarHeader />
+          <Sidebar/>
+        
+        </div>
         <div className='center'>
           <div className='question-info'>
             <h2>Question {currentQuestion + 1} from 10</h2>
