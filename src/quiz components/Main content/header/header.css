@@ -1,0 +1,20 @@
+header{
+    background-color: rgb(112, 128, 144);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+}
+.title{
+    color: white;
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding-left: 12px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.title-container{
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
